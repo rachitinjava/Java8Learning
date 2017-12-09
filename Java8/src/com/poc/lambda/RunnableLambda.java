@@ -1,5 +1,5 @@
 package com.poc.lambda;
-
+//this is demostrates runnable
 public class RunnableLambda {
 
 	public static void main(String[] args) {
