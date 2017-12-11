@@ -3,4 +3,8 @@
 1) Thread pool executor provides custom implementation.
 2) Core pool size,maximum pool size,idle time,queue size etc.
 3) If additional tasks are submitted when all threads are busy and queue is full then threadd will throws RejectedExecutionException.
-4)  
+
+
+TODO :
+
+Different types of blocking queues 
