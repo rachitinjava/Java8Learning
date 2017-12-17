@@ -2,7 +2,7 @@ package com.poc.streams;
 
 import java.util.stream.Stream;
 
-public class ProcessingOrderStreamApp4 {
+public class ProcessingOrderStreamApp3 {
 
 	public static void main(String[] args) {
 
