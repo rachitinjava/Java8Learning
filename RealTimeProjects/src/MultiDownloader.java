@@ -1,5 +1,6 @@
-import java.io.*;
-import java.net.*;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.net.URL;
 
 public class MultiDownloader
 {
