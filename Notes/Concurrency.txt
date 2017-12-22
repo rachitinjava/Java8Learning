@@ -7,4 +7,43 @@
 
 TODO :
 
-Different types of blocking queues 
+Different types of blocking queues
+
+
+https://github.com/owengoodwin/java-se-advanced-projects
+https://github.com/lukaswerner/JavaConcurrency/tree/master/src/examples
+https://github.com/fax4ever/java-play
+https://github.com/Roillior/SortThread
+https://github.com/mikecoram/ConcurrencyBankSimulation/tree/master/doc
+https://github.com/Zephir77167/java-concurrent-multiply-matrices
+https://github.com/CX4Life/Elevator-Model
+https://github.com/tmciver/ConcurrentFileHasher/blob/master/src/com/timmciver/hasher/Hasher.java
+https://github.com/KhomynSophia/javaday
+https://github.com/madsnmpetersen/Area51-Java-project/blob/master/project.pdf
+https://github.com/dudu84/java-rice-university
+
+
+_______________++++______________________
+https://github.com/crispyshow/Concurrent_HTTP_Server
+https://github.com/sulistionoadi/java-concurrent-readwrite-file
+https://github.com/dudu84/java-rice-university
+https://github.com/Bassov/concurrent_apps/tree/master/src
+https://github.com/nathanameye/OCaptainMyCaptain
+https://github.com/yexianyi/Barbara
+https://github.com/chrisguiney/jportscanner/tree/master/src/net/guiney
+https://github.com/janmurin/KoprPresuvac
+https://github.com/abbygail/Song-List-Databse
+https://github.com/rgj7/cs4743_cabinetron
+https://github.com/BBQyuki/AOS_PRJ_02
+https://github.com/brianmlima/org.bml
+https://github.com/claytonrv/CoinsHunt
+https://github.com/jonnyhsy/multithreaded_downloader
+https://github.com/Jitianyu/simple-http-sever
+https://github.com/orkhan-mammedov/InfiniShare
+https://github.com/Jzhou46/Traffic-Light-System
+https://github.com/Havoc9792/CodeTogether
+https://www.youtube.com/watch?v=juahfpQQgIc
+https://www.youtube.com/watch?v=PHGTSLbLItI
+https://www.youtube.com/watch?v=am23MMhTOxM
+http://tutorials.jenkov.com/java-nio/nio-vs-io.html
+	
