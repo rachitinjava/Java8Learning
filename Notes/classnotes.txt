@@ -139,4 +139,78 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 
 -------------------------------------------------------------------
 
+For Delete operation, @DeleteMapping to be used...
+
+To remove the object from the list while iterating we need to use List.removeIf(predicate); It has O(n) complexity.
+
+For more details, please study rachitinjava wiki on github.
+
+-------------------------------------------------------------------
+
+Validation in Rest Service:
+
+Step - 1: To add validation to a bean, add @Valid at the Bean where @RequestBody User user is written. Spring Boot Auto Configuration will take care of the rest.
+
+For Example :
+
+@PostMapping("/users")
+	public ResponseEntity<Object> addUser(@Valid @RequestBody User user){
+	 User savedUser = service.save(user);
+	 
+	 //CREATED
+	 // /user/4
+	 URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId()).toUri(); 
+	 return ResponseEntity.created(location).build();
+	}
+	
+
+Step - 2: Add individual validations in the Bean (i.e. User here) .
+
+Refer : https://docs.oracle.com/javaee/6/tutorial/doc/gircz.html
+
+public class User {
+	
+	
+	private Integer id;
+	
+	@Size(min=2)
+	private String name;
+	
+	@Past
+	private Date birthDate;
+	
+}
+
+Step - 3: If we use step 1 and 2 then only 400 : Bad Request is coming but what is bad we don't know?
+
+We need to override ResponseEntityExceptionHandler's method handleMethodArgumentNotValid()
+
+	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+			HttpHeaders headers, HttpStatus status, WebRequest request) {
+
+		return handleExceptionInternal(ex, null, headers, status, request);
+	}
+
+Overriden menthod will look like :
+
+@Override
+	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+			HttpHeaders headers, HttpStatus status, WebRequest request) {
+		
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),ex.getMessage(), ex.getBindingResult().toString());
+		
+		return new ResponseEntity(exceptionResponse,HttpStatus.BAD_REQUEST);
+	}
+
+Above -> ex.getBindingResult().toString() will contain error during binding.
+
+Also, for customized error message :
+
+	@Size(min=2,message="Name should have atleast 2 characters")
+	private String name;
+
+## These validation definition is present in the validation-api.jar. However, the implementation is provided by hibernate-validator-5.4.1.jar in our case i.e. 
+the underlying implementation.
+
+-------------------------------------------------------------------------------------------------------------
 
