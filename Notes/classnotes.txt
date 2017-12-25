@@ -266,6 +266,7 @@ public class Post {
 	// We are creating the fetch as Lazy. Otherwise, Post will call the user and user will call the post.
 	// And again there will be recursion. Hence, unless post.getUser(); is called this will not fetch the detail.
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JsonIgnore // This will come by itself and then user is called and then user will call and so on during the time of JSON conversion. So to ignore this 
 	private @Getter @Setter User user;
 	
 	@Override
@@ -274,6 +275,61 @@ public class Post {
 	}
 	
 
+Step - 8 :
 
+Here, I dont'e want to create the realtionship column in both the tables User and Post. I only want it to be persent in Post. Therefore, i will declare 
+MappedBy in the User entity. That tells the JPA the relationship owner is Post. So, here mappedby = "user"...i.e. the column present in the post.
+
+See below query for post this is having a relationship user_id created. However, User table has its own contents.
+Hibernate: create table post (id integer not null, message varchar(255), user_id integer, primary key (id))
+
+Hibernate: create table user (id integer not null, birth_date timestamp, name varchar(255), primary key (id))
+
+package com.dbbank.practise.springrestservices.user;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class User {
+	
+	@Id
+	@GeneratedValue
+	private @Getter @Setter Integer id;
+	
+	@Size(min=2,message="Name should have atleast 2 characters")
+	private @Getter @Setter String name;
+	
+	@Past
+	private @Getter @Setter Date birthDate;
+	
+	@OneToMany(mappedBy="user")
+	private @Getter @Setter List<Post> posts;
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", birthDate=" + birthDate + "]";
+	}
+
+	public User(int i, String string, Date date) {
+		//TODO
+	}
+	
+}
 
 
