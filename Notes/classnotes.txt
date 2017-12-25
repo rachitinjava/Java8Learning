@@ -267,6 +267,7 @@ public class Post {
 	// And again there will be recursion. Hence, unless post.getUser(); is called this will not fetch the detail.
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnore // This will come by itself and then user is called and then user will call and so on during the time of JSON conversion. So to ignore this 
+	// When i have user, i can get the post. But, when i get post unnecesarily it will try to get the user...
 	private @Getter @Setter User user;
 	
 	@Override
