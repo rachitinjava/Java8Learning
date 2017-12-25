@@ -214,3 +214,30 @@ the underlying implementation.
 
 -------------------------------------------------------------------------------------------------------------
 
+Integrating Spring Boot Restservice with JPA
+
+Step - 1 : Mark the bean with @Entity annotation
+
+Step - 2 : Mark the Id field with @ID and @Generated for the database to generate its value.
+
+Step - 3 : To see the SQL generated. Goto application.properties -> add spring.jpa.show-sql = true
+
+	   To see the H2 console, add spring.h2.console.enabled = true 
+
+See the logs these will be generated ... 
+
+Hibernate: drop table user if exists
+Hibernate: create table user (id integer not null, birth_date timestamp, name varchar(255), primary key (id))
+
+Step - 4 : Create data.sql. This will be having insert queries to pre-populate the table.
+
+insert into user values (1,sysdate(),'rachit');
+insert into user values (2,sysdate(),'shah');
+
+Step - 5 : To check the records in the table . Navigate to the H2 database console :
+
+JDBC Url will be jdbc:h2:mem:testdb
+
+Step - 6: To talk to User @Entity, we need to create a spring data repository.
+
+@Repository is the annotation for that.
