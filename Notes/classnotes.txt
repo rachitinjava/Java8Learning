@@ -218,7 +218,7 @@ Integrating Spring Boot Restservice with JPA
 
 Step - 1 : Mark the bean with @Entity annotation
 
-Step - 2 : Mark the Id field with @ID and @Generated for the database to generate its value.
+Step - 2 : Mark the Id field with @ID and @GeneratedValue for the database to generate its value.
 
 Step - 3 : To see the SQL generated. Goto application.properties -> add spring.jpa.show-sql = true
 
@@ -240,4 +240,40 @@ JDBC Url will be jdbc:h2:mem:testdb
 
 Step - 6: To talk to User @Entity, we need to create a spring data repository.
 
-@Repository is the annotation for that.
+@Repository is the annotation for that. 
+
+Important thing to remember is that UserRepository will be an interface and not the class.
+
+It should extend the JPARepository<entityname,primarykeydatatype>
+
+Example :
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {
+	
+}
+
+Step - 7: Now creating the entity post. Please read the comments for details :
+
+@Entity
+public class Post {
+	
+	@Id
+	private @Getter @Setter Integer id;
+	private @Getter @Setter String message;
+	
+	//Since Many posts will be tagged to one user
+	// We are creating the fetch as Lazy. Otherwise, Post will call the user and user will call the post.
+	// And again there will be recursion. Hence, unless post.getUser(); is called this will not fetch the detail.
+	@ManyToOne(fetch=FetchType.LAZY)
+	private @Getter @Setter User user;
+	
+	@Override
+	public String toString() {
+		return "Post [id=" + id + ", message=" + message + "]";
+	}
+	
+
+
+
+
