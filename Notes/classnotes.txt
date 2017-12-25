@@ -1,0 +1,142 @@
+# RESTful Web Service - Representational State Transfer
+GET - /users
+POST - /users
+GET - /users/{id}
+DELETE - /users/{id}
+
+GET  - /users/{id}/posts
+POST - /users/{id}/posts
+GET - /users/{id}/posts/{post_id}
+
+------------------------------------------------------------------
+
+# Important Point : If the getter is missing for a bean then automatic converter will not work.
+It will give you white label error saying that no converter is found something error...
+
+# Some Important Questions to understand :
+
+- What is dispathcher servlet?
+- Who is configuring dispatcher servlet?
+- What does dispatcher servlet do?
+- who is configuring the error mapping?
+
+To answer this we need to run this application in the debug mode :
+application.properties --> logging.level.org.springframework = debug
+
+In debug, Autoconfiguration logs comes...DispacherServlet Autoconfiguration matched.. 
+Spring-Boot-Starter-web has a dependency on spring mvc
+
+the other thing we see ErrorMVCAutoConfiguration -- Basic error page configuration like white label error page
+
+This are all because of spring boot auto configuration and it scans thru the classes and jars thru the classpath
+
+The other thing we see is the HttpMessageConverterAutoConfiguration, We can see Jackson2Object Customizer...
+JSON --> Beans and from Beans --> JSON
+
+Jackson Bean are getting initialized.
+
+Now, we should understand the dispatcher servlet..
+
+- Mapping servlet: 'dispatcherServlet' to [/] -- this is the root of the web application
+
+:: This is following a pattern called frontcontroller. Here, DispatcherServlet is the front controller.
+ 
+:: Dispatcher Servlet knows all the mapping in the application. which method is mapped to which path.
+
+:: It looks for URI and the request method like GET,POST,DELETE etc...	  
+
+:: Once the method is executed and dispatcher servlet see that it has to send the bean back. Then dispatcher servlet thinks 
+how do i sent the message back? Then if you see the class is annotated with @RestController if you closely look at the
+@RestController then this annotation contains @ResponseBody.
+
+If a controller is annotated with @ResponseBody then the response from that will be mapped by a message converter to someother format.
+Here, the message converter will be used is the Jackson Convertor.
+
+Dispatcher servlet plays a key role in spring boot and spring mvc application.
+
+------------------------------------------------------------------------------
+
+@PathVariable is used to map the variable with the input path variable value
+
+@GetMapping("/hello/{name}")
+public HelloWorld getHelloPath(@PathVariable String name){
+ return "Rachit"+name;
+
+}
+
+------------------------------------------------------------------------------
+To tell jackson to write dates as timestamps add the configuration to application.properties like
+
+spring.jackson.serialization.write-dates-as-timestamps = false;
+
+
+---------------------------------------------------------------
+
+For POST rest call, I need to furnish @RequestBody annotation so that the request JSON will be mapped to the bean type
+by the Jackson Mapper.
+
+@PostMapping("/users/{user}")
+	public void addUser(@RequestBody User user){
+	 service.save(user);
+	 
+}
+
+## A default constructor is required for Post call to add user. It can be protected need not to be a public type. Otherwise, we will get
+a 500 internal server error.
+
+------------------------------------------------------------------------
+## To return the status back as CREATED then we can use ResponseEntity
+Response Entity is actually an extension of HttpEntity that adds a HttpStatus.
+
+To get the rest resource path  URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId()).toUri(); 
+This resource path will come as a location field in the response header.
+
+To return the CREATED status return ResponseEntity.created(location).build();
+
+---------------------------------------------------------------------------
+
+How to tell the client that a particular user is not found
+
+By using @ResponseStatus :)
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class UserNotFoundException extends RuntimeException {
+
+	public UserNotFoundException(String message) {
+		super(message);
+	}
+
+}
+
+----------------------------------------------------------------------------
+
+How to add a common structure for Exception Handling?
+A structure should be language independent. Structure can later be implemented in java,nodejs etc...
+
+ResponseEntityExceptionHandler can be extended to provide the default exception handling for customized and centralized
+exception handling.
+
+ResponseEntityExceptionHandler  is an abstract class.
+
+This class should be annotated with @ControllerAdvice
+
+//Specialization of @Component for classes that declare @ExceptionHandler, @InitBinder, or @ModelAttribute methods to be shared across multiple @Controller classes. 
+@ControllerAdvice
+// It should give response back in case of exception
+@RestController
+public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+
+	@ExceptionHandler(Exception.class) //renamed from handleExceptions to handleAllException because it was final in superclass
+	public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request){
+	
+	ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),ex.getMessage(), request.getDescription(false));
+		
+	return new ResponseEntity(exceptionResponse,HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+}
+
+
+-------------------------------------------------------------------
+
+
