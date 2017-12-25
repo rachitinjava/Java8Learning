@@ -1,0 +1,134 @@
+Basic JUnit Structure :
+
+package com.in28minutes.junit.helper;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class QuickBeforeAfterTest1 {
+	
+	@BeforeClass  // This is a class level so it should be static
+	public static void  beforeClass(){
+		System.out.println("Before Class");
+		//To Some DB connection
+	}
+	
+	@Before // Executed for each test case
+	public void setup(){
+		System.out.println("Before Test");
+	}
+	
+	@Test
+	public void test1() {
+		System.out.println("test1 executed");
+	}
+
+	@Test
+	public void test2() {
+		System.out.println("test2 executed");
+	}
+	
+	@After
+	public void teardown(){
+		System.out.println("After");
+	}
+	
+	@AfterClass
+	public static void afterClass(){
+		
+		System.out.println("After Class");
+	}
+}
+
+
+How to test Arrays?
+
+	@Test
+	public void testArraySort_RandomArray() {
+		
+		int[] numbers = {12,3,4,1};
+		int[] expected = {1,3,4,12};
+		
+		Arrays.sort(numbers);
+		assertArrayEquals(expected, numbers);
+		
+	}
+
+How to test Exceptions?
+
+	@Test(expected=NullPointerException.class)
+	public void testArraySort_NullArray() {
+		int[] numbers = null;
+		Arrays.sort(numbers);
+	}
+
+How to test for performance?
+
+	@Test(timeout=1000) //1000 milisec
+	public void testArraySort_Performance() {
+		
+		int array[] = {12,23,4};
+		
+		for(int i=1;i<=1000000;i++){
+			array[0] = i;
+			Arrays.sort(array);
+		}
+		
+	}
+
+How to write parameterized test?
+
+Step -1 : Annotate the test class with @RunWith(Parameterized.class)
+
+Step -2 : Create a public static Collection getParam() and annotate it with @Parameters
+
+Step -3 : Create parameterized constuctor
+
+Example :
+
+package com.in28minutes.junit.helper;
+
+import static org.junit.Assert.*;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+@RunWith(Parameterized.class)
+public class StringHelperParameterizedTest {
+
+	// AACD => CD ACD => CD CDEF=>CDEF CDAA => CDAA
+
+	StringHelper helper = new StringHelper();
+	
+	private String input;
+	private String expectedOutput;
+	
+	public StringHelperParameterizedTest(String input, String expectedOutput) {
+		this.input = input;
+		this.expectedOutput = expectedOutput;
+	}
+
+	@Parameters
+	public static Collection<String[]> testConditions() {
+		String expectedOutputs[][] = { 
+				{ "AACD", "CD" }, 
+				{ "ACD", "CD" } };
+		return Arrays.asList(expectedOutputs);
+	}
+
+	@Test
+	public void testTruncateAInFirst2Positions() {
+		assertEquals(expectedOutput, 
+				helper.truncateAInFirst2Positions(input));
+	}
+}
+
