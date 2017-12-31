@@ -132,3 +132,102 @@ public class StringHelperParameterizedTest {
 	}
 }
 
+
+
+----------------------------------------------
+
+Mockito is the default framework to test the spring based applications
+
+Step -1: 
+import static org.mocktio.Mocktio.mock;
+DataService dataServiceMock = mock(DataService.class)
+
+Step - 2:
+Now i want like dataServiceMock.retrieveAllData() => new int[] {24,15,3}
+
+when(dataServiceMock.retrieveAllData()).thenReturn(new int[] {24,15,3});
+
+
+That's it!!!
+
+
+## Mockito Annotations to make it easy:
+
+@Mock 
+DataService dataServiceMock; //This is used to mock the service
+
+@InjectMock
+SomeBusinessImpl businessImpl; //This is used to Inject the mocks in business impl
+
+But it will throw nullpointerexception if @RunWith(MockitoJunitRunner.class) is not kept over the class.
+
+## If thenReturn() is called multiple times then it will give the result on that particuler count
+
+Self explainatory code
+
+package com.learn.mockito.mockito.demo;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.List;
+
+
+public class ListInterfaceMockTest {
+
+	@Test
+	public void testListOne() {
+		List listMock = mock(List.class);
+		when(listMock.size()).thenReturn(10);
+		assertEquals(10,listMock.size());
+		assertEquals(10,listMock.size());
+	}
+	
+	@Test
+	public void testListTwo() {
+		List listMock = mock(List.class);
+		when(listMock.size()).thenReturn(10).thenReturn(20);
+		assertEquals(10,listMock.size());
+		assertEquals(20,listMock.size());
+		assertEquals(20,listMock.size());
+	}
+
+
+}
+
+
+## How to return a value for specific input or for generic input?
+
+Make sure the mocking param can either be generic or specific and not the combination of generic and specific
+
+@Test
+	public void testGet_Specific() {
+		List listMock = mock(List.class);
+		when(listMock.get(0)).thenReturn("Specific String");
+		assertEquals("Specific String",listMock.get(0));
+		assertEquals(null,listMock.get(1));
+	}
+
+	@Test
+	public void testGet_Generic() {
+		List listMock = mock(List.class);
+		when(listMock.get(Mockito.anyInt())).thenReturn("Specific String");
+		assertEquals("Specific String",listMock.get(0));
+		assertEquals("Specific String",listMock.get(1));
+	}
+
+
+## Spring JUnit Testing
+
+org.springframework
+spring-test
+
+junit/junit
+
+org.mockito
+mockito.core
+
+## 
