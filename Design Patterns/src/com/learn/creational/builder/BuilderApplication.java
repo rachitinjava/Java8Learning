@@ -1,4 +1,4 @@
-package com.learn.builder;
+package com.learn.creational.builder;
 
 public class BuilderApplication {
 
