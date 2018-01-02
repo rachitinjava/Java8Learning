@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.learn.third.Customer" table="CUSTOMER">
+<id name="id" column="ID">
+<generator class="increment"/>
+</id>
+<property name="name" column="NAME" type="string"/>
+<property name="email" column="EMAIL" type="string"/>
+<property name="mobile" column="MOBILE" type="string"/>
+<property name="address" column="ADDRESS" type="string"/>
+</class>
+</hibernate-mapping>
+
+<!-- CREATE TABLE CUSTOMER (ID INT,NAME VARCHAR(10),EMAIL VARCHAR(50),MOBILE VARCHAR(10),ADDRESS VARCHAR(100), PRIMARY KEY(ID)); -->
