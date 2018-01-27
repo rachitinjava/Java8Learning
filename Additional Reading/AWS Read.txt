@@ -422,8 +422,8 @@ Microsoft Windows [Version 10.0.14393]
 (c) 2016 Microsoft Corporation. All rights reserved.
 
 C:\Users\Lenovo>aws configure
-AWS Access Key ID [None]: AKIAINMLSAA3QIPMMYJQ
-AWS Secret Access Key [None]: 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
+AWS Access Key ID [None]: 
+AWS Secret Access Key [None]:
 Default region name [None]: ap-south-1
 Default output format [None]:
 
