@@ -1,0 +1,654 @@
+Iaas Gartner's Magic Quadrant leader for 6th consecutive year.
+
+Niche - Challengers - Leaders - Visionaries
+
+What is a region? what is an AZ?
+
+A region is a geographical area/physical location and each region is consists of 2 or more availibility zone AZ.
+AZ is a data center.
+
+
+What is an Edge Location?
+Edge location are the endpoints of AWS which is used for caching the content.typically consists of CloudFront/Amazon's
+CDN.
+
+AWS Services :
+
+1) EC2 (Elastic Compute Cloud) : Virtual Machines
+
+2) EC2 Container Services : Like Docker
+
+3) Elastic Beanstalk
+
+4) Lambda
+
+5) Lightsail - Virtual Private Service - Fixed IP for RDP/SSH
+
+6) Batch - Batch Computing  
+
+Storage
+
+1) S3 (Simple Storage Service) : Object based storage. It has buckets. You Upload files into buckets.
+
+2) EFS (Elastic File System) : Network attached storage.
+
+3) Glacier - Data Archival - Cheap
+
+4) Snowball - Large amount of data into data center.
+
+5) Storage Gateway - Virtual machine/Applicances that replicate info to S3.
+
+Databases :
+
+1) RDS (Relational Database Service) : MySql, MSSQL, Aurora (MySQL) , Posegres
+
+2) DynamoDB ( Non-relational db)
+
+3) ElasticCache : It is the way of caching commonly queried things from your database server. Free us the db
+
+4) RedShift : Datawarehousing / Business Intelligence...Complex queires..management want to know the gain and loss
+
+Migration :
+
+1) Hub : Tracking service ..as you migrate to AWS
+
+2) Application Discovery Service : tracking dependecy for your app.
+
+3) Database Migration Service : IT is very easy for you to migrate your database from on-premise to AWS.
+
+4) Server Migration Service:
+
+5) Snowball : migrating large amount of data to aws cloud
+
+Networking and Content Delivery : 
+
+1) VPC (Virtual Private Cloud) : Virtual datacentres...configure firewall and other stuff..very important
+
+2) Cloud Front : Amazon's CDN...store closure to your edge location...
+
+3) Route53 : DNS service... -> IPv4 / Ipv6
+
+4) API Gateway: way of creating APIs for other services to talk to
+
+5) Direct Connect : Dedicated line from your office.. important
+
+Developer Tools :
+
+1) CodeStar : Project managing your code..Continous delivery
+
+2) Code Commit : Private git...like repository
+
+3) Code Build : Compile Code
+
+4) Code Deploy : Code deployment..
+
+5) Code Pipleline : Automate the steps to release the software..
+
+6) X-Ray..
+
+7) Cloud 9 : IDE environment
+
+Part - 3:
+
+Management Tools : 
+
+1) Cloud Watch : Monitoring Service..SysOP
+
+2) Cloud Formation : Solution Architect...way of scripting infrastructure..template and then i can deploy anything
+
+3) Cloud Trail : Log changes to AWS environment and it is turned on default. very important
+
+4) Config : Monitors the configuration.
+
+5) OpsWorks : Automating your environments...
+
+6) Service Catalog : Catalog of IT services...
+
+7) System's manager : Patch management..
+
+8) Trusted Advisor : Advice across mutiple discipline..advice on AWS/port open/save money on AWS..
+
+9) Managed Services : AWS can do  it for you..you don't have to worrry about EC2s
+
+Media Services : 
+
+1) Elastic Transcoder : Video -> Resizes..
+
+2) Media COnvert - content for bradcast
+
+3) Media Live - HQ video streams to deliver to bradcast
+
+4) Media Package - Protect
+
+5) Media Store - Storage to optimize the media  
+
+6) Media Tailor - 
+
+Machine Learning : 
+
+1) SageMaker : DeepLearning coding for their environment.Neural Nw
+
+2) Comprehend : Sentiment Analysis for data
+
+3) DeepLens : Artifically Aware Camera...physical hardware
+
+4) Lex : Amazon alexa services.. AI way of chatting to customers..
+
+5) Machine Learning :  DataSet and then analyze it..predict based on that..recommended products
+
+6) Polly : Text -> Speech and also accent..
+
+7) ReKognition : upload the file -> then it tell what is on the file... like wise it is a video..
+
+8) Amazon translate : it is just like google translate..
+
+9) Trancribe : Automatic Speech Recognigiton.. Speech -> Text
+
+Analytics : 
+
+1) Athena : It allows you to run SQL queries against S3 bucket...sql to objects in your bucket...
+
+2) EMR (Elastic Matriges ): Big data solutions..analysis.. important
+
+3) Cloud Search : 
+
+4) Elastic Search Services
+
+5) Kinesis : way of ingesting large amount of data .. important
+
+6) Kinesis Video Stream : ingest large amount of video
+
+7) QuickSight : BI tool...
+
+8) Data Pipeline: Way of moving data between different AWS.. important
+
+9) Glue : ETL (Extract/Transform/Load)
+
+Security & Identity & Compliance :
+
+1) IAM : 
+
+2) Cognito : Device Authentication
+
+3) GuardDuty : To know malicious service
+
+4) Inspector :  TO run test..Security vulnerability..
+
+5) Macie : Scan S3 buckets..like PII
+
+6) Certificate Manager : SSL certificate for free
+
+7) CloudHSM - Hardware Security Module : used them to store your keys...
+
+8) Directory Services : Integrating Microsoft ADs with these services...
+
+9) Web App FireWall (WAF) : XSS, SQL injection  
+
+10) Shield : detoast attacks
+
+11) Artifact : AWS compliant reports..PCI reports...
+
+MOBILE sERVICES;
+
+1) Mobile Hub : Mobile app to AWS backend
+
+2) Pinpoint  : push notifications...
+
+3) AWS AppSync : 
+
+4) Device Farm : Testing your apps on real life devices..
+
+5) Mobile Analytics :
+
+AR/VR (Augment Realty/Virtual Realty):
+
+Sumerian..
+
+Application Integration :
+
+1) Step Functions:
+
+2) Amazon MQ : Messsage Queues
+
+3) SNS : Notification Servies
+
+4) SQS : Decoupling the infrastructure..
+
+5) SWF : Simple workflow service...
+
+Customer Engagement:
+
+1) Connect : Customer ENgagement
+
+2) Simple Email Service : large amount of emails
+
+Business Productivity
+
+1) Alexa for business : Dial into a meeting room...reorder ink for a printer..not that imp
+
+2) Chime : Video conferencing
+
+3) Work Docs : it's like a dropbox
+
+4) WorkMail : it is like Office 365..
+
+Desktop and appstreaming
+
+1) WorkSpaces : VDI solutions
+
+2) Appstream 2.0 : Way of streaming the actual application..like citrix 
+
+IoT 
+
+1) iOT
+
+2) iOT Device Management
+
+3) Amazon FreeRTOS
+
+4) GreenGRass : 
+
+GameDevelopers:
+
+1) GameLift
+
+-----------------------------------------------------------------------------------------------------------------
+
+IAM :
+User Creation :
+
+Programmatic Access to AWS
+AccessKeyId 
+Secret Access Key
+
+If you loose above AccessKeyId and Secret Access Key.
+
+UI Access to AWS only password
+
+IAM consists of 
+1) Users
+2) Group
+3) Roles
+4) Policy Documents -> apply to group -> made up of JSON key-value pair
+
+{"Effect":"Allow",
+"Action" : "*",
+"Resource: "*"}
+
+IAM is universal and not applied to any region.
+
+Root Account has complete admin access. 
+New Users has NO permissions when first created
+
+
+Access Control:
+
+Policy for users
+Roles for Entity like EC2, Lambda
+
+Password Policy: like IdP
+
+
+
+
+Billing Alarms to save money
+
+-------------------
+
+S3 - 101 ( Do not intall DB or OS ;)
+
+Amazon S3 is easy to use,with a simple web service interface to store and retrieve any amount of data
+from anywhere on the web.
+
+### Simple Storage Service
+
+1) S3 is a safe place to store your files.
+2) It is Object based storage.
+3) The data is spread across multiple devices and facilities
+
+In storage world, there is something called object based and something called blocked based.
+
+Object are videos,photos,documents are known as flat files.
+
+S3 is not a place to run database and for that we need blocked based storage.
+
+It is just a place to store a file in cloud.
+
+### The Basics :
+
+1) S3 is Object based i.e. alloes you to upload files.
+2) Files can be from 0 Bytes to 5 TB.
+3) There is unlimited storage.
+4) Files are stored in Buckets. Buckets can be think of folder. There can be many buckets in S3 environment.
+5) S3 is a universal namespace,that is, names must be unique globally.
+Bucket name would be unique across S3 globally.
+
+6) https://s3-eu-west-1.amazonaws.com/acloudguru bucket address
+7) for successful upload to S3 : 200 OK
+
+### Data Consistency Model for S3:
+
+1) Read after Write consistency for PUTS of new objects. -- New data can be read immidiately after write
+2) Eventual Consistency for overwrite PUTS and DELETES (can take sometime to propogate) -- However, it may 
+ take sometime for an update/delete operation there may be a change to get old data.
+ 
+Designed for multiple devices/facilities 
+
+i.e. you will get new or old data in case of update i.e. it is atomic there is no such as partial data.
+
+### S3 - S3 is a simple key value store
+
+1) S3 is Object based. Object consists of the following :
+
+--> Key (This is simply the name of the object) - To sort objects in alplabatical order/lexographical. We can add salt at the start of the file to evenly store the data...may be used when file names are very very similar then add salt at the begining(didnt get much but will see how it goes)
+--> Value (This is simply the data and is made up of a sequence of bytes)
+--> Version ID (Important for versioning)
+--> Metadata (Data about the data you are storing)
+--> Subresources 
+   ** Access Control Lists - Fine grain permission -- who can access it?
+   ** Torrent 
+2) Built for 99.99 % availibility for the S3 Platform.
+3) Amazon guarantees for 99.9% availibility.
+4) Amazon guarantees 99.99999999999% (11 9's) for durability of s3 information. (you won't loose file)
+5) Tired Storage Available.
+6) Lifecycle Management
+7) Versioning
+8) Encryption
+9) Secure your data using Access Control Lists and Bucket Policies.
+
+### S3 - Storage Tiers/Classes
+
+1) S3 (Standard) - 99.99% availibility and 99.99999999999% durability, stored redundantly accross multiple devices in multiple facilities and is designed to sustain the loss of 2 facilities concurrently.
+
+Inshort, durable, immidiately available, frequently accessed
+
+2) S3 - Standard IA (Infrequently Accessed) For the data that is accessed less frequently, but requires rapid access when needed. Lower fee than S3, but you are chareged a retrival fee.
+
+Inshort, durable, immidiately available, infrequenly accessed
+
+3) Reduced Redundancy Storage - Designed to provide 99.99% durability and 99.99% availibility of objects over a given year.
+(May be the data that you can regenerate again like that use case)
+
+Inshort, data that is easily reproducible, such as thumb nails etc.
+
+4) (Other than S3) Glacier - Very cheap, but used for archival only. It takes 3-5 hours to restore from Glacier.
+
+
+### What is Glacier?
+Glacier is an extremely low-cost storage service for data archival. Amazon Glacier stores data for as little as $0.01 per gigabyte per month, and is optimized for data that  is innfrequently accessed and for which retrieval times of 3 to 5 hours are suitable.
+
+### S3 Charges - Criteria
+
+Charged for
+1) Storage
+2) Requests
+3) Storage Management Pricing - you can add tag like HR Data...tag based charges
+4) Data Transfer Pricing - Replciation from one region to another
+5) Transfer acceleration : Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your end users and an S3 bucket. Transfer Acceleration takes advantage of Amazon CloudFront's globally distributed edge locations. As the data arrives at an edge location, data is routed to Amazon S3 over an optimized network path.
+
+### Versioning On S3:
+
+To keep multiple copies of an Object in the same bucket.
+
+Stores all version of an object (including all writes and even if you delete an object)
+
+Once you enable it you cannot disable it. You can only suspend it.
+
+Storage cost can go up. But if there is a very large files and changes much then don't go for it.
+
+To protect people from accedently deleting it one can enable MFA delete.
+
+Once you delete an object in S3 with version. The current version copy will be replaced with a delete marker and if someone
+tries to access it. It gives 404.
+
+To delete the object permanently one has to make DELETE request with the versionID.
+
+### Cross Region Replication
+
+In order to have cross region replication to be happen...versioning should be enabled on both the buckets.
+
+Only new objects will be replicated to the new bucket...but, for existing objects to be copied to the other bucket we require to do more.
+
+Goto Management -> Replication
+
+If you delete and object it will be replicated i.e. delete marker will be replicated.
+
+If you delete a delete marker it will not be replicated to the destination bucket. whooo...but it is how it is ;)
+
+
+AWS CLI:
+
+Microsoft Windows [Version 10.0.14393]
+(c) 2016 Microsoft Corporation. All rights reserved.
+
+C:\Users\Lenovo>aws configure
+AWS Access Key ID [None]: AKIAINMLSAA3QIPMMYJQ
+AWS Secret Access Key [None]: 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
+Default region name [None]: ap-south-1
+Default output format [None]:
+
+C:\Users\Lenovo>aws s3 ls
+2018-01-26 19:53:32 rachitinjava
+
+C:\Users\Lenovo>aws s3 cp --recursive s3://rachitinjava s3://rachitinjavaparis
+copy: s3://rachitinjava/SecondTest.txt to s3://rachitinjavaparis/SecondTest.txt
+
+*** By CLI doing this only data will be copied but not the policies i.e. public object will be copied by defauls as private ;)
+
+*** BUT BUT BUT if we make a new version and make it public by UI then it will replicate both object and the policy....
+
+*** Deleting a particular version of an object won't be replicated i.e. the version will not be deleted in the destination bucket...this is how it is
+
+IMPORTANT REGARDING CROSS REGION REPLICATION :
+
+1) Versioning must be enabled on both the source and destination
+2) Regions must be unique..can't replicate in the same region
+3) Files in an existing bucket are not replicated automatically. All subsequent files will be replicated automatically. you can do this by using copy command.
+4) You cannot replicate to multiple bucket or daisy chaining at this time.
+5) Delete markers are replicated.
+6) Deleting individual versions or delete markers will not be replicated.
+7) Understand CRR at high level.
+
+### Lifecycle Management
+
+LifeCycleRules to S3 Bucket:
+
+Action on current version
+Action on Previous Version
+
+Refer to screen shots
+
+Objects deleted from glacier 90 days. Because minimum cost for glacier is calculated for 90 days.
+
+Saving some money
+
+1)conjunction with version
+2) Can be applied to current versions and previous versions.
+3) Following actions can now be done;
+
+- Transition to the Sandard - Infrequent Access Storage Classes (128kb and 30 days after the creation date)
+- Archive to the Glacier Storage Class (30 days after IA,if relevent)
+- Permanently Delete
+
+
+Read Basics
+EC2
+RDS
+
+
+### EC2 (Elastic Compute Cloud) :
+
+Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and boot new server instance to mintues, allowing you to quickly scale capacity, both up and down, as your computing requirements change.
+
+It is virtual machine in a cloud.
+
+EC2 Options
+
+ORSD
+
+1) On Demand - allow you to pay a fixed rate by the hour (or by the second) with no commitment.
+
+later on and for dev and tesing
+
+2) Reserved - provide you with a capacity reservation, and offer a signicant dscount on the hourly charge for an instance. 1 Year or 3 Year Terms.
+
+upfront payment
+
+Standard RI (75% off on demand)
+COnvertible RI (54%) Linux -> Windows
+Scheduled RI - predicatable recurring schedule for fraction of a day
+
+
+3) Spot - enable you to bid whatever price you want for instance capacity, providing even greater savings if your applications have flexible start and end timings.
+
+- Application that are only feasible at very low pricing compute prices
+
+4) Dedicated Hosts - Physical EC2 server dedicated for your use. Dedicated Hosts can help you reduce costs by allowing you to use your existing server-bound software licenses.
+
+- Useful for regulatory requirements that may not support multi-tenant virtualization.
+- Great for licensing which does not support multi-tenancy or cloud deployments
+- Can be purchansed On-Demand (hourly)
+- Can be purchased as a reservation for up to 70% off the On-Demand price.
+
+EC2 Instances Types : 
+
+P2 - Speciality - Graphics/General Purpose GPU - Application - Machine Learning, Bit Coin Mining etc.
+T2 - Low Cost, General Purpose - Web Servers/Small DBs
+I2 - High Speed Storage - NoSQL DBs
+M4 - General Purpose - Application Servers/Small
+
+D - Density
+R - RAM
+M - Main Choice for general purpose
+C - Compute Optimized
+G - Graphics/General
+I - Iops
+F - FPGA
+T - cheap general purpose (think T2 Micro)
+P - Graphics/General Purpose (think Pics)
+X - Extreme Memory
+
+DIRTMCGFPX - DR Mc GIFT PX
+
+Amazon EBS? 
+
+It is like a disks. It is block based storage.
+
+Amazon EBS allows you to create storage volumes and attach them to Amazon EC2 instances.
+
+Once attached, you can create a file system on top of these volumes, run a database, or use them in any way you would use a block device.
+
+Amazon EBS volumes are places in a specific Avalibility Zone, where they are automatically replicated to protect you from the failure of a single component.
+
+EBS Volume Type :
+
+1) General purpose SSD (GP2) : balancess both price and performance (upto 10000 IOPS)
+2) Provisiones IOPS SSD (IO1) : Designed for I/O itensive apps...large relational DB or NoSql db. > 10000 IOPS
+3) Through Optimized HDD (ST1) : Big data/data ware houses/ log processing/ Cannot be boot volumes
+4) Cold HDD (SC1) : Lowest Cost Storage for infrequently accessed workloads/ file server / cannot be boot volumes
+5) Magnetic (Standard) : Lowest cost per GB of all EBS that is bootable/ data is accessed infrequently/ applications where the lowest cose is important.
+
+*** You cannot mount 1 EBS volume to multiple EC2 instance instead use EFS.
+
+Hands-On:
+
+Enable CloudWatch detailed monitoring
+
+Advanced Details : For bootstrap scripts
+
+Security Group : Virtual Firewall
+
+
+### Databases 101 :
+
+Relational Database :
+
+Database
+Tables
+Rows
+Fields
+
+Each row is a record.
+
+6 Databases
+
+SQL Server
+Oracle
+MySQL Server
+PostgreSQL
+AuroraMariaDB
+
+Non Relational Databases :
+
+DynamoDB - Document Oriented Database
+
+Collection = Table
+Document = Row
+Key Value Pair = Fields
+
+{
+"_id":"121211", -> Field/Key Value Pair
+"firstname":"Smith",
+}
+
+
+Data Warehousing :
+
+Used for business intelligence. Tools like Cognos
+
+
+OLTP (Online Transaction Processing) vs OLAP (Online Analytics Processing)
+
+OLTP : Order number 2120121
+
+Pulls up a row of data such as Name,Date,Address to Deliver..
+
+OLAP:
+
+Pulls in large number of records.
+
+
+What is ElastiCache?
+
+ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory cache in the cloud.
+The service improves the performance of web applications by allowing you to retrieve information from fast,managed, in-memory caches, instead of relying entirely on slower disk-based databases. Easticache supports two open-source in-memory caching engines:
+1) Memcached
+2) Redis
+
+Like top 10 deals of today.
+
+What is DMS?
+
+Database Migration Service : migrate prod dataase to AWS.
+
+Data type transformation, compression, and parallel transfer while ensuring that data changes to the source database that occur during the migration process are automatically replicated to the target.
+
+AWS schema conversion tool automatically converts the source database schema and a majority of the custom code, including views, stored procedures and functions to a format compatible with the target database.
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
